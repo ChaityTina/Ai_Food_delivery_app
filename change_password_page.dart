@@ -1,29 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(ChangePasswordApp());
-}
+class change_password_page extends StatefulWidget {
+  const change_password_page({super.key});
 
-class ChangePasswordApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Change Password',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: ChangePasswordPage(),
-    );
-  }
-}
-
-class ChangePasswordPage extends StatefulWidget {
-  @override
+  // ignore: library_private_types_in_public_api
   _ChangePasswordPageState createState() => _ChangePasswordPageState();
 }
 
-class _ChangePasswordPageState extends State<ChangePasswordPage> {
+class _ChangePasswordPageState extends State<change_password_page> {
   final _newPasswordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   bool _obscureNew = true;
@@ -60,8 +45,6 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
       _showMessage('Passwords do not match');
       return;
     }
-
-    // Simulate success
     _showMessage('Password changed successfully');
   }
 
@@ -100,8 +83,6 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               style: TextStyle(color: Colors.grey[600]),
             ),
             SizedBox(height: 32),
-
-            // New Password Field
             TextField(
               controller: _newPasswordController,
               obscureText: _obscureNew,
@@ -122,8 +103,6 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               style: TextStyle(fontSize: 12, color: Colors.grey[600]),
             ),
             SizedBox(height: 24),
-
-            // Confirm Password Field
             TextField(
               controller: _confirmPasswordController,
               obscureText: _obscureConfirm,
@@ -144,8 +123,6 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               style: TextStyle(fontSize: 12, color: Colors.grey[600]),
             ),
             Spacer(),
-
-            // Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
