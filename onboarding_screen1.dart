@@ -1,37 +1,23 @@
 import 'package:flutter/material.dart';
-//import 'onboarding_screen1.dart';
+import 'onboarding_screen2.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Onboarding_Screen1(),
-  ));
-}
-
-class Onboarding_Screen1 extends StatelessWidget {
-  const Onboarding_Screen1({super.key});
+class onboarding_screen1 extends StatelessWidget {
+  const onboarding_screen1({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // ✅ Background Image - Flipped Horizontally
           SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Transform(
               alignment: Alignment.center,
-              transform: Matrix4.identity()
-                ..scale(-1.0, 1.0), // Flip horizontally
-              child: Image.asset(
-                "lib/assets/picture1.png",
-                fit: BoxFit.cover,
-              ),
+              transform: Matrix4.identity()..scale(-1.0, 1.0),
+              child: Image.asset("assets/images/picture1.png", fit: BoxFit.cover),
             ),
           ),
-
-          // ✅ Simulated Status Bar (Time + Icons)
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -48,8 +34,11 @@ class Onboarding_Screen1 extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.signal_cellular_4_bar,
-                          color: Colors.white, size: 18),
+                      Icon(
+                        Icons.signal_cellular_4_bar,
+                        color: Colors.white,
+                        size: 18,
+                      ),
                       SizedBox(width: 4),
                       Icon(Icons.wifi, color: Colors.white, size: 18),
                       SizedBox(width: 4),
@@ -60,8 +49,6 @@ class Onboarding_Screen1 extends StatelessWidget {
               ),
             ),
           ),
-
-          // ✅ Bottom Orange Card with Text and Buttons
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -95,8 +82,6 @@ class Onboarding_Screen1 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-
-                  // ✅ Page Dots
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -106,8 +91,6 @@ class Onboarding_Screen1 extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-
-                  // ✅ Skip & Next Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -119,7 +102,14 @@ class Onboarding_Screen1 extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const onboarding_screen2(),
+                            ),
+                          );
+                        },
                         icon: const Icon(Icons.arrow_forward_ios, size: 16),
                         label: const Text("Next"),
                         style: ElevatedButton.styleFrom(
@@ -136,8 +126,6 @@ class Onboarding_Screen1 extends StatelessWidget {
               ),
             ),
           ),
-
-          // ✅ Bottom White Navigation Indicator Bar
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -155,7 +143,6 @@ class Onboarding_Screen1 extends StatelessWidget {
     );
   }
 
-  // Dot builder for page indicator
   static Widget _buildDot({bool isActive = false}) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -169,4 +156,3 @@ class Onboarding_Screen1 extends StatelessWidget {
     );
   }
 }
-// TODO Implement this library.
