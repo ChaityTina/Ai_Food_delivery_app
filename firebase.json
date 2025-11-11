@@ -1,0 +1,31 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ai-food-delivery-app",
+          "appId": "1:60822150263:android:2b838a853b075ef85aba72",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ai-food-delivery-app",
+          "configurations": {
+            "android": "1:60822150263:android:2b838a853b075ef85aba72",
+            "ios": "1:60822150263:ios:c142aa61eaaa07685aba72",
+            "macos": "1:60822150263:ios:c142aa61eaaa07685aba72",
+            "web": "1:60822150263:web:ca027f800c280a9d5aba72",
+            "windows": "1:60822150263:web:c874791283a361855aba72"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
