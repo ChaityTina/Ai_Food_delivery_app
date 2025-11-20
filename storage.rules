@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isOwner() {
+      return request.auth != null
+             && request.auth.uid in ['YOUR_OWNER_UID_HERE'];
+    }
+
+    match /foods/{file} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    match /users/{file} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+
